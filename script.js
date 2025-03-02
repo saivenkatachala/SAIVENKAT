@@ -89,3 +89,17 @@ contactForm.addEventListener('submit', function (e) {
       console.error('Error:', error);
     });
 });
+// Tab Switching Logic
+const tabButtons = document.querySelectorAll(".tab-btn");
+const projectSections = document.querySelectorAll(".projects-grid");
+
+tabButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    tabButtons.forEach(btn => btn.classList.remove("active"));
+    projectSections.forEach(section => section.classList.remove("active"));
+
+    button.classList.add("active");
+    document.getElementById(button.dataset.target).classList.add("active");
+  });
+});
+
