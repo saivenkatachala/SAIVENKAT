@@ -63,7 +63,7 @@ contactForm.addEventListener('submit', function (e) {
   formData.append('email', document.getElementById('email').value);
   formData.append('message', document.getElementById('message').value);
 
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbxhQIdVi5IxyzE8U3nfcLUDHiBJdKv5S3ckSAEgRZ0JTvGSoPRLakrsdzW1ai-jAfrX/exec';
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwQyY2uPIHKHWfRjrP_U_jCx1NvAbvIehCjuf8OPH8ymmzNOVzRF7Q__gYSQn-KBMaP/exec';
 
   formResponse.textContent = 'Sending message...';
   formResponse.style.color = '#00bcd4';
@@ -102,4 +102,3 @@ tabButtons.forEach(button => {
     document.getElementById(button.dataset.target).classList.add("active");
   });
 });
-
