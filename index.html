@@ -9,16 +9,63 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
 
+    // Toggle menu
+    if (mobileMenu && navLinks) {
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+    }
+
+    // Optional: Hide/Show Project Tabs Logic (if you need the tabs to function)
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const projectGrids = document.querySelectorAll('.projects-grid');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove 'active' from all buttons and grids
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            projectGrids.forEach(grid => grid.classList.remove('active'));
+
+            // Add 'active' to the clicked button and its corresponding grid
+            button.classList.add('active');
+            const targetId = button.getAttribute('data-target');
+            const targetGrid = document.getElementById(targetId);
+            if (targetGrid) {
+                targetGrid.classList.add('active');
+            }
+        });
+    });
+
+    // Ensure the Academic Projects tab is active on load (based on your HTML setup)
+    const academicGrid = document.getElementById('academic-projects');
+    if (academicGrid && !academicGrid.classList.contains('active')) {
+        academicGrid.classList.add('active');
+    }
+});
+</script>
 </head>
+
 <body>
   <!-- Navigation Bar -->
-  <nav>
-    <div class="container">
+ <nav>
+    <div class="container nav-container">
         <h1 class="logo"><i class="fa-solid fa-user-tie"></i> Portfolio</h1>
         <ul class="nav-links">
             <li><a href="#home"><i class="fa-solid fa-house"></i> Home</a></li>
-            <li><a href="#about"><i class="fa-solid fa-user"></i> About</a></li>
             <li><a href="#education"><i class="fa-solid fa-graduation-cap"></i> Education</a></li>
             <li><a href="#projects"><i class="fa-solid fa-laptop-code"></i> Projects</a></li>
             <li><a href="#skills"><i class="fa-solid fa-lightbulb"></i> Skills</a></li>
@@ -43,8 +90,8 @@
           <h1>A SAI VENKAT</h1>
           <p>Data Science Specialist | Machine Learning Enthusiast | Computer Science Engineer</p>
           <div class="home-buttons">
-            <a href="#about" class="btn">More</a>
-            <a href="A_SAI_VENKAT_RESUME_2025.pdf" download class="btn btn-download">Download CV</a>
+            <a href="#about" class="btn btn-primary">More <i class="fas fa-arrow-right"></i></a>
+            <a href="A_SAI_VENKAT_RESUME_2025.pdf" download class="btn btn-download"><i class="fas fa-download"></i> Download CV</a>
           </div>
         </div>
         <div class="home-image">
@@ -116,8 +163,62 @@
       </div>
     </div>
 
-    <!-- Basic Projects -->
+
+
+
+
     <div id="basic-projects" class="projects-grid">
+      <div class="project-card basic-project-card">
+        <div class="project-bg-image" style="background-image: url('p1.jpg');"></div>
+        <div class="project-content-visible">
+            <h3>Movie Website</h3>
+            <p>A dynamic movie browsing website built using HTML, CSS, and JavaScript, offering an interactive way to explore Movies.</p>
+            <a href="https://saivenkatachala.github.io/cine/" target="_blank" class="project-btn">Open Project</a>
+        </div>
+      </div>
+      <div class="project-card basic-project-card">
+        <div class="project-bg-image" style="background-image: url('p2.jpg');"></div>
+        <div class="project-content-visible">
+            <h3>Expense Tracker Website</h3>
+            <p>A simple and interactive expense tracker built using HTML, CSS, and JavaScript to help manage and monitor daily expenses.</p>
+            <a href="https://saivenkatachala.github.io/EXPENSE/" target="_blank" class="project-btn">Open Project</a>
+        </div>
+      </div>
+      <div class="project-card basic-project-card">
+        <div class="project-bg-image" style="background-image: url('p3.jpg');"></div>
+        <div class="project-content-visible">
+            <h3>Weather App</h3>
+            <p>A real-time weather forecasting web app built using JavaScript and OpenWeather API.</p>
+            <a href="https://saivenkatachala.github.io/Weather/" target="_blank" class="project-btn">Open Project</a>
+        </div>
+      </div>
+      <div class="project-card basic-project-card">
+        <div class="project-bg-image" style="background-image: url('p8.jpg');"></div>
+        <div class="project-content-visible">
+            <h3>Perfect Cards & Printers</h3>
+            <p>A modern website for a printing business built with HTML, CSS, and JavaScript.</p>
+            <a href="https://perfectcards.netlify.app/" target="_blank" class="project-btn">Open Project</a>
+        </div>
+      </div>
+      <div class="project-card basic-project-card">
+        <div class="project-bg-image" style="background-image: url('P9.jpg');"></div>
+        <div class="project-content-visible">
+            <h3>Sharekaro</h3>
+            <p>A file-sharing platform concept developed using web technologies.</p>
+            <a href="https://perfectcards.netlify.app/" target="_blank" class="project-btn">Open Project</a>
+        </div>
+      </div>
+      <div class="project-card basic-project-card">
+        <div class="project-bg-image" style="background-image: url('p5.jpg');"></div>
+        <div class="project-content-visible">
+            <h3>Todo List Website</h3>
+            <p>A lightweight and user-friendly to-do list app built using HTML, CSS, and JavaScript to efficiently organize daily tasks.</p>
+            <a href="https://saivenkatachala.github.io/todolist/" target="_blank" class="project-btn">Open Project</a>
+        </div>
+      </div>
+    </div>
+    <!-- Basic Projects -->
+    <!-- <div id="basic-projects" class="projects-grid">
       <div class="project-card">
         <img src="p1.jpg" alt="Project 1">
         <h3>Movie Website </h3>
@@ -137,12 +238,24 @@
         <a href="https://saivenkatachala.github.io/Weather/" target="_blank" class="project-btn">Open</a>
       </div>
       <div class="project-card">
+        <img src="p8.jpg" alt="Project 3">
+        <h3>Perfect Cards & Printers</h3>
+        <p>A real-time weather forecasting web app built using JavaScript and OpenWeather API.</p>
+        <a href="https://perfectcards.netlify.app/" target="_blank" class="project-btn">Open</a>
+      </div>
+      <div class="project-card">
+        <img src="P9.jpg" alt="Project 3">
+        <h3>Sharekaro</h3>
+        <p>A real-time weather forecasting web app built using JavaScript and OpenWeather API.</p>
+        <a href="https://perfectcards.netlify.app/" target="_blank" class="project-btn">Open</a>
+      </div>
+      <div class="project-card">
         <img src="p5.jpg" alt="Project 4">
         <h3>Todo List Website</h3>
         <p>A lightweight and user-friendly to-do list app built using HTML, CSS, and JavaScript to efficiently organize daily tasks.</p>
         <a href="https://saivenkatachala.github.io/todolist/" target="_blank" class="project-btn">Open</a>
       </div>
-    </div>
+    </div> -->
 
   </div>
 </section>
@@ -262,4 +375,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
